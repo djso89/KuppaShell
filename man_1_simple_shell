@@ -1,0 +1,69 @@
+.TH man 1 "14 April 2020" "Holberton School" "KuppaShell"
+
+.SH NAME
+.B KuppaShell
+- a simple UNIX command interpreter
+
+.SH SYNOPSIS
+.B ./hsh
+
+.SH DESCRIPTION
+A simple implentation of a command line interpreter that reads, interprets, then executes commands from a line input accordingly.
+KuppaShell works in either interactive (standard input) or non-interactive (piped from file) modes.
+
+.SH INTERACTIVE MODE EXAMPLE
+.PP
+.PP
+$ ./hsh
+.PP
+KuppaShell$ /bin/ls
+.PP
+hsh main.c shell.c
+.PP
+KuppaShell$ exit
+$
+.PP
+.PP
+
+.SH NON-INTERACTIVE MODE EXAMPLE
+.PP
+.PP
+$ echo "/bin/ls" | ./hsh
+.PP
+hsh main.c shell.c test_ls_2
+.PP
+$
+.PP
+$ cat test_ls_2
+.PP
+/bin/ls
+.PP
+/bin/ls
+$
+.PP
+$ cat test_ls_2 | ./hsh
+.PP
+hsh main.c shell.c test_ls_2
+.PP
+hsh main.c shell.c test_ls_2
+.PP
+$
+.PP
+.PP
+
+.SH RETURN VALUE
+Returns 0 or EXIT_SUCCESS upon exiting the program.
+
+.SH Exit Status
+Errors that are detected by the shell, such as a syntax error, will cause the shell to
+exit with a non-zero exit status. Otherwise, the exit status
+returned is the status of the previous command executed.
+
+.SH SEE ALSO
+sh(1)
+
+.SH BUGS
+No known bugs.
+
+.SH AUTHORS
+Daniel So and Michelle Domingo
