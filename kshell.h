@@ -43,7 +43,8 @@ int execute(char **av, char **env, char *fname);
 /*this is for handling ctrl - c*/
 void sigintHandler(int sig_num);
 int check_spc_nl(char *line);
-
+int check_builtin(char *av0);
+void do_builtin(char **av, char **env);
 
 
 /*free_mem.c*/
@@ -58,4 +59,7 @@ unsigned int _strlen(char *s);
 char *_strdup(char *str);
 char *_strncpy(char *dest, char *src, int n);
 
+/*cd_helpers.c*/
+int do_cd(char **av, char **env);
+int go_here(char **av);
 #endif /*KSHELL_H */

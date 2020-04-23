@@ -1,7 +1,5 @@
 #include "kshell.h"
-int check_builtin(char *av0);
-void do_builtin(char **av, char **env);
-int do_cd(char **av, char **env);
+
 /**
  * main - Entry Point
  * @argc: number of argument count.
@@ -44,50 +42,4 @@ int main(int argc, char **argv, char **env)
 	}
 	check_EOF(num_read, line);
 	return (exit_status);
-}
-int check_builtin(char *av0)
-{
-	if (_strncmp(av0, "env", _strlen("env")) == 0)
-		return (1);
-	if (_strncmp(av0, "cd", _strlen("cd")) == 0)
-		return (1);
-	return (0);
-}
-void do_builtin(char **av, char **env)
-{
-	if (_strncmp(av[0], "env", _strlen("env")) == 0)
-	{
-		show_env(env, av);
-		return;
-	}
-	if (_strncmp(av[0], "cd", _strlen("cd")) == 0)
-	{
-		do_cd(av, env);
-		return;
-	}
-}
-int do_cd(char **av, char **env)
-{
-	char *path, *path_cpy, *path_tok;
-	int isChanged = 0;
-
-	if (av[1] == NULL || _strncmp(av[1], "~", 1) == 0)
-	{
-		path = _getenv("HOME", env);
-		path_cpy = _strdup(path);
-		path_tok = strtok(path_cpy, "=");
-		path_tok = strtok(NULL, "\n");
-		isChanged = chdir(path_tok);
-		free(path_cpy);
-		free_av(av);
-		return (isChanged);
-	}
-	if (_strncmp(av[1], "..", 2) == 0)
-	{
-		isChanged = chdir("..");
-		free_av(av);
-		return (isChanged);
-	}
-	free_av(av);
-	return (-1);
 }

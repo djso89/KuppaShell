@@ -71,3 +71,35 @@ int execute(char **av, char **env, char *argv0)
 	exit_num = WEXITSTATUS(pgm_stat);
 	return (exit_num);
 }
+/**
+ * check_builtin - function that checks valid command for built-in
+ * @av0: command string from av[0]
+ * Return: 1 if valid command
+ */
+int check_builtin(char *av0)
+{
+	if (_strncmp(av0, "env", _strlen("env")) == 0)
+		return (1);
+	if (_strncmp(av0, "cd", _strlen("cd")) == 0)
+		return (1);
+	return (0);
+}
+/**
+ * do_builtin - function that executes built-in features
+ * @av: argument string array
+ * @env: environment string array
+ * Return: nothing
+ */
+void do_builtin(char **av, char **env)
+{
+	if (_strncmp(av[0], "env", _strlen("env")) == 0)
+	{
+		show_env(env, av);
+		return;
+	}
+	if (_strncmp(av[0], "cd", _strlen("cd")) == 0)
+	{
+		do_cd(av, env);
+		return;
+	}
+}
