@@ -5,7 +5,8 @@
 </p>
 
 ### Description
-KuppaShell is a UNIX command interpreter written in the C programming language. This program was designed to mimic functionalities of the simple shell (sh) for a Holberton School project.
+KuppaShell is a UNIX command interpreter written in the C programming language. This repository is continuation of 
+simple_shell project from HolbertonSchool. More features such as easter eggs, alias, etc will be added.
 
 ___
 ## Project Requirements
@@ -61,11 +62,11 @@ ___
 ## Installation
 Clone repository into working directory:
 ```c
-$ git clone https://github.com/djso89/simple_shell.git
+$ git clone https://github.com/djso89/KuppaShell.git
  ```
 Compile as follows for best results:
 ```c
-$ gcc -Wall -Werror -Wextra -pedantic *.c -o hsh
+$ gcc -Wall -Werror -Wextra -pedantic *.c -o kuppa
  ```
 
 ## Usage
@@ -74,7 +75,7 @@ KuppaShell works in either interactive or non-interactive modes. Use "exit" comm
 ### Interactive Mode
 Run executable then type in commands at prompt. For example:
 ```c
-$ ./hsh
+$ ./kuppa
 KuppaShell$ /bin/ls
 hsh main.c shell.c
 KuppaShell$ exit
@@ -84,14 +85,14 @@ $
 ### Non-interactive Mode
 Echo desired command and pipe into program. KuppaShell will end after commands are executed. For example:
 ```c
-$ echo "/bin/ls" | ./hsh
+$ echo "/bin/ls" | ./kuppa
 hsh main.c shell.c test_ls_2
 $
 $ cat test_ls_2
 /bin/ls
 /bin/ls
 $
-$ cat test_ls_2 | ./hsh
+$ cat test_ls_2 | ./kuppa
 hsh main.c shell.c test_ls_2
 hsh main.c shell.c test_ls_2
 $
